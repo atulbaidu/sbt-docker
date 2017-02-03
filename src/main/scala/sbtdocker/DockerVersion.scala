@@ -15,7 +15,7 @@ object DockerVersion extends RegexParsers {
       log.info(line)
     })
 
-    val command = dockerPath :: "version" :: "-f" :: "{{.Server.Version}}" :: Nil
+    val command = dockerPath :: "version" :: "{{.Server.Version}}" :: Nil
     val processOutput = Process(command).!!(processLogger)
     parseVersion(processOutput)
   }
